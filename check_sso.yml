@@ -1,5 +1,8 @@
-- name: Ensure SSO service is running on VM
-  ansible.windows.win_service:
-    name: Stormshield SSO Agent
-    start_mode: auto
-    state: started
+- name: Check SSO
+  hosts: all
+  tasks:
+    - name: Ensure SSO service is running on VM
+      ansible.windows.win_service:
+        name: Stormshield SSO Agent
+        start_mode: auto
+        state: started
